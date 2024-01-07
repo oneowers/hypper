@@ -18,7 +18,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://127.0.0.1:8000/api/seller/${sellerId}/`;
+    const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/seller/${sellerId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)
@@ -39,7 +39,7 @@ function HomePage() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://127.0.0.1:8000/api/products/?page=1&seller=${sellerId}`;
+    const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/products/?page=1&seller=${sellerId}`;
 
     // Fetch the data from the API
     fetch(apiUrl)

@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import {Dialog, Popover, Menu, Tab, Transition} from '@headlessui/react'
 import {Bars3Icon, MagnifyingGlassIcon, ShoppingCartIcon, UserIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {ChevronDownIcon} from '@heroicons/react/20/solid'
-import Order from '../../../../components/ecommerce/components/shopping-carts/modal.jsx'
+import Order from '../shopping-carts/modal.jsx'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -92,7 +92,7 @@ export default function Example() {
 
         if (cookieValue !== undefined) {
 
-            const apiUrl = `http://127.0.0.1:8000/api/user/` + cookieValue;
+            const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/user/` + cookieValue;
 
             fetch(apiUrl)
                 .then((response) => {
@@ -111,7 +111,7 @@ export default function Example() {
 
 
     useEffect(() => {
-        const apiUrl = `http://127.0.0.1:8000/api/categories/`;
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/categories/`;
 
         fetch(apiUrl)
             .then((response) => {

@@ -16,7 +16,7 @@ export default function Test() {
     const navigate = useNavigate(); // Access the navigate function from the hook
 
     useEffect(() => {
-        const apiUrl = `http://127.0.0.1:8000/api/categories/`;
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/categories/`;
 
         fetch(apiUrl)
             .then((response) => {
@@ -64,7 +64,7 @@ export default function Test() {
 
     // Function to fetch products based on category ID
     const fetchProducts = (categoryId) => {
-        const apiUrl = `http://127.0.0.1:8000/api/products/?category_id=${categoryId}`;
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/products/?category_id=${categoryId}`;
 
         fetch(apiUrl)
             .then((response) => {
@@ -91,7 +91,7 @@ export default function Test() {
         const decodedData = JSON.parse(decodeURIComponent(rawData));
         const categoryId = decodedData.category_id;
 
-        const apiUrl = `http://127.0.0.1:8000/api/products/?category_id=${categoryId}`;
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/products/?category_id=${categoryId}`;
 
         fetch(apiUrl)
             .then((response) => {

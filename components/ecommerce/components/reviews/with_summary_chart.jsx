@@ -22,7 +22,7 @@ export default function Example() {
   const { id: productId } = useParams();
   const [reviews, setRewiews] = useState(null);
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:8000/api/product/${productId}/`;
+    const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/product/${productId}/`;
   
   fetch(apiUrl)
   .then((response) => {

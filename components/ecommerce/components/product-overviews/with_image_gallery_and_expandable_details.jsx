@@ -15,7 +15,7 @@ function WithImageGalleryAndExpandableDetails() {
 
   useEffect(() => {
     // Define the API URL with the productId
-    const apiUrl = `http://127.0.0.1:8000/api/product/${productId}/`;
+    const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/product/${productId}/`;
 
     // Fetch the data from the API
     fetch(apiUrl)

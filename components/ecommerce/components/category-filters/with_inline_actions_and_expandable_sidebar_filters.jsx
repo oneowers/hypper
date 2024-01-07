@@ -129,7 +129,7 @@ export default function Example() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const apiUrl = `http://127.0.0.1:8000/api/categories/`;
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/categories/`;
 
         fetch(apiUrl)
             .then((response) => {
@@ -169,8 +169,8 @@ export default function Example() {
 // Updated fetchProducts
 const fetchProducts = (categoryId) => {
 const apiUrl = categoryId
-    ? `http://127.0.0.1:8000/api/products/?category_id=${categoryId}`
-    : 'http://127.0.0.1:8000/api/products/';
+    ? process.env.REACT_APP_API_BASE_URL + `/api/products/?category_id=${categoryId}`
+    : process.env.REACT_APP_API_BASE_URL + '/api/products/';
 
 fetch(apiUrl)
     .then((response) => {
@@ -195,8 +195,8 @@ fetch(apiUrl)
 useEffect(() => {
 
     const apiUrl = decodedData != null
-        ? `http://127.0.0.1:8000/api/products/?category_id=${decodedData.category_id}`
-        : 'http://127.0.0.1:8000/api/products/';
+        ? process.env.REACT_APP_API_BASE_URL + `/api/products/?category_id=${decodedData.category_id}`
+        : process.env.REACT_APP_API_BASE_URL + '/api/products/';
 
     fetch(apiUrl)
         .then((response) => {

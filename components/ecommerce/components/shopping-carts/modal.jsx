@@ -36,7 +36,7 @@ useEffect(() => {
 
     if (cookieValue !== undefined) {
 
-        const apiUrl = `http://127.0.0.1:8000/api/user/` + cookieValue + "/cartitems/";
+        const apiUrl = process.env.REACT_APP_API_BASE_URL + `/api/user/` + cookieValue + "/cartitems/";
 
         fetch(apiUrl)
             .then((response) => {

@@ -58,7 +58,7 @@ const handlePhoneNumberChange=(event)=> {
         const blog = { "username": "+998" + phoneNumber.replace(/-/g, ''), "password": password };
         console.log(blog);
 
-        fetch('http://127.0.0.1:8000/api/register/', {
+        fetch(process.env.REACT_APP_API_BASE_URL + '/api/register/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
